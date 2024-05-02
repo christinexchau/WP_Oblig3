@@ -14,9 +14,9 @@
             <h1>Order cinematickets</h1>
             <form class="form">
                 <div class="form-group">
-                    <label for="film">Choose a movie:</label>
-                    <span id="filmFeil" style="color:darkred" class="feilmelding"></span>
-                    <select id="film">
+                    <label for="movie">Choose a movie:</label>
+                    <span id="filmFeil" style="color:darkred" class="errormessage"></span>
+                    <select id="movie">
                         <option value="The Boy and the Heron">The Boy and the Heron</option>
                         <option value="Prinsesse Mononoke">Prinsesse Mononoke</option>
                         <option value="Past Lives">Past Lives</option>
@@ -24,29 +24,29 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="antall">Antall billetter</label>
-                    <span id="antallFeil" style="color:darkred" class="feilmelding"></span>
-                    <input type="number" class="form-control" min="1" id="antall" placeholder="Antall"/>
+                    <label for="quantity">Antall billetter</label>
+                    <span id="quantityError" style="color:darkred" class="errormessage"></span>
+                    <input type="number" class="form-control" min="1" id="quantity"/>
                 </div>
                 <div class="form-group">
-                    <label for="fornavn">Fornavn</label>
-                    <span id="fornavnFeil" style="color:darkred" class="feilmelding"></span>
-                    <input type="text" class="form-control" id="fornavn" placeholder="Fornavn"/>
+                    <label for="firstName">Fornavn</label>
+                    <span id="fornavnFeil" style="color:darkred" class="errormessage"></span>
+                    <input type="text" class="form-control" id="firstName" placeholder="First name"/>
                 </div>
                 <div class="form-group">
-                    <label for="etternavn">Etternavn</label>
-                    <span id="etternavnFeil" style="color:darkred" class="feilmelding"></span>
-                    <input type="text" class="form-control" id="etternavn" placeholder="Etternavn"/>
+                    <label for="lastName">Etternavn</label>
+                    <span id="etternavnFeil" style="color:darkred" class="errormessage"></span>
+                    <input type="text" class="form-control" id="lastName" placeholder="Last name"/>
                 </div>
                 <div class="form-group">
                     <label for="epost">Epost</label>
-                    <span id="epostFeil" style="color:darkred" class="feilmelding"></span>
-                    <input type="text" class="form-control" id="epost" placeholder="Epost"/>
+                    <span id="epostFeil" style="color:darkred" class="errormessage"></span>
+                    <input type="text" class="form-control" id="epost" placeholder="Email"/>
                 </div>
                 <div class="form-group">
                     <label for="telefonnr">Telefonnummer</label>
-                    <span id="telefonnrFeil" style="color:darkred" class="feilmelding"></span>
-                    <input type="text" class="form-control" id="telefonnr" placeholder="Telefon"/>
+                    <span id="telefonnrFeil" style="color:darkred" class="errormessage"></span>
+                    <input type="text" class="form-control" id="telefonnr" placeholder="Phonenumber"/>
                 </div>
             </form>
             <button class="btn btn-primary" onclick="regBillett()">Kjøp billetter</button><br/>

@@ -1,9 +1,9 @@
 
 //Funksjon som registrerer billetten
 function regBillett () {
-    const enBillett = {
-        film: $('#film').val(),
-        antall: $('#antall').val(),
+    const oneTicket = {
+        movie: $('#movie').val(),
+        quantity: $('#quantity').val(),
         fornavn: $('#fornavn').val(),
         etternavn: $('#etternavn').val(),
         epost: $('#epost').val(),
@@ -11,28 +11,28 @@ function regBillett () {
     };
 
     //Legger til valideringsinputer
-    if(Object.values(enBillett).includes("") || enBillett.film === "Velg film her") {
-        if (enBillett.antall === "") {
+    if(Object.values(oneTicket).includes("") || oneTicket.movie === "Velg film her") {
+        if (oneTicket.quantity === "") {
             $("#antallFeil").html("Du mangler å skrive inn antall");
         } else {
             $("#antallFeil").html("");
         }
-        if (enBillett.fornavn === "") {
+        if (oneTicket.fornavn === "") {
             $("#fornavnFeil").html("Du mangler fornavn")
         } else {
             $("#fornavnFeil").html("");
         }
-        if (enBillett.etternavn === "") {
+        if (oneTicket.etternavn === "") {
             $("#etternavnFeil").html("Du mangler etternavn")
         } else {
             $("#etternavnFeil").html("");
         }
-        if (enBillett.epost === "" || !gyldigEpost(enBillett.epost)) {
+        if (oneTicket.epost === "" || !gyldigEpost(oneTicket.epost)) {
             $("#epostFeil").html("Du må skrive inn en gyldig epost")
         } else {
             $("#epostFeil").html("");
         }
-        if (enBillett.telefonnr === "" || enBillett.telefonnr.length !== 8) {
+        if (oneTicket.telefonnr === "" || oneTicket.telefonnr.length !== 8) {
             $("#telefonnrFeil").html("Du må skrive inn et gyldig telefonnummer")
         } else {
             $("#telefonnrFeil").html("");
@@ -44,12 +44,12 @@ function regBillett () {
             hentAlle();
         });
         //Tømmer inputene
-        $("#film").val("");
-        $("#antall").val("");
-        $("#fornavn").val("");
-        $("#etternavn").val("");
-        $("#epost").val("");
-        $('#telefonnre').val("");
+        $("#movie").val("");
+        $("#number").val("");
+        $("#firstName").val("");
+        $("#lastName").val("");
+        $("#email").val("");
+        $('#phonenumber').val("");
     }
 }
 function hentAlle() {
@@ -59,16 +59,16 @@ function hentAlle() {
 }
 
 //Viser fram inputene i en tabell
-function formaterData(billetter) {
+function formaterData(tickets) {
     let ut = "<table class='table table-striped'><tr><th>Film</th><th>Antall</th><th>Fornavn</th>" +
         "<th>Etternavn</th><th>Epost</th><th>Telefonnummer</th></tr>";
-    for (const billett of billetter) {
-        ut += "<tr><td>" + billett.film
-            + "</td><td>" + billett.antall
-            + "</td><td>" + billett.fornavn
-            + "</td><td>" + billett.etternavn
-            + "</td><td>" + billett.epost
-            + "</td><td>" + billett.telefonnr
+    for (const ticket of tickets) {
+        ut += "<tr><td>" + ticket.movie
+            + "</td><td>" + ticket.
+            + "</td><td>" + ticket.firstName
+            + "</td><td>" + ticket.etternavn
+            + "</td><td>" + ticket.epost
+            + "</td><td>" + ticket.telefonnr
             + "</td></tr>";
     }
     ut += "</table>";
