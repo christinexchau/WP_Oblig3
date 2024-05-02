@@ -1,10 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="index.js"></script>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Order cinematickets</title>
 </head>
 <body>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Order cinematickets</h1>
+            <form class="form">
+                <div class="form-group">
+                    <label for="film">Choose a movie:</label>
+                    <span id="filmFeil" style="color:darkred" class="feilmelding"></span>
+                    <select id="film">
+                        <option value="The Boy and the Heron">The Boy and the Heron</option>
+                        <option value="Prinsesse Mononoke">Prinsesse Mononoke</option>
+                        <option value="Past Lives">Past Lives</option>
+                        <option value="Pitch Perfect">Pitch Perfect</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="antall">Antall billetter</label>
+                    <span id="antallFeil" style="color:darkred" class="feilmelding"></span>
+                    <input type="number" class="form-control" min="1" id="antall" placeholder="Antall"/>
+                </div>
+                <div class="form-group">
+                    <label for="fornavn">Fornavn</label>
+                    <span id="fornavnFeil" style="color:darkred" class="feilmelding"></span>
+                    <input type="text" class="form-control" id="fornavn" placeholder="Fornavn"/>
+                </div>
+                <div class="form-group">
+                    <label for="etternavn">Etternavn</label>
+                    <span id="etternavnFeil" style="color:darkred" class="feilmelding"></span>
+                    <input type="text" class="form-control" id="etternavn" placeholder="Etternavn"/>
+                </div>
+                <div class="form-group">
+                    <label for="epost">Epost</label>
+                    <span id="epostFeil" style="color:darkred" class="feilmelding"></span>
+                    <input type="text" class="form-control" id="epost" placeholder="Epost"/>
+                </div>
+                <div class="form-group">
+                    <label for="telefonnr">Telfonnummer</label>
+                    <span id="telefonnrFeil" style="color:darkred" class="feilmelding"></span>
+                    <input type="text" class="form-control" id="telefonnr" placeholder="Telefon"/>
+                </div>
+            </form>
+            <button class="btn btn-primary" onclick="regBillett()">Kjøp billetter</button><br/>
+        </div>
+        <div class="col-md-8">
+            <h3>Alle billettene:</h3>
+            <div id="billettene" class="table-responsive"></div>
+            <button class="btn btn-danger" onclick="slettAlle()">Slett alle billetter</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>
