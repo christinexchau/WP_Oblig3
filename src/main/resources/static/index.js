@@ -11,37 +11,37 @@ function regTicket () {
     };
 
     //Legger til valideringsinputer
-    if(Object.values(oneTicket).includes("") || oneTicket.movie === "Velg film her") {
+    if(Object.values(oneTicket).includes("") || oneTicket.movie === "Choose a movie here") {
         if (oneTicket.quantity === "") {
-            $("#quantityError").html("Du mangler å skrive inn antall");
+            $("#quantityError").html("You are missing the number of tickets");
         } else {
             $("#quantityError").html("");
         }
         if (oneTicket.firstName === "") {
-            $("#firstNameError").html("Du mangler fornavn")
+            $("#firstNameError").html("You are missing your first name")
         } else {
             $("#firstNameError").html("");
         }
-        if (oneTicket.etternavn === "") {
-            $("#etternavnFeil").html("Du mangler etternavn")
+        if (oneTicket.lastName === "") {
+            $("#etternavnFeil").html("You are missing your last name")
         } else {
             $("#etternavnFeil").html("");
         }
         if (oneTicket.email === "" || !validEmail(oneTicket.email)) {
-            $("#epostFeil").html("Du må skrive inn en gyldig epost")
+            $("#emailError").html("You must write a valid email")
         } else {
-            $("#epostFeil").html("");
+            $("#emailError").html("");
         }
         if (oneTicket.phonenumber === "" || oneTicket.phonenumber.length !== 8) {
-            $("#telefonnrFeil").html("Du må skrive inn et gyldig telefonnummer")
+            $("#phonenumberError").html("You must write a valid phonenumber")
         } else {
-            $("#telefonnrFeil").html("");
+            $("#phonenumberError").html("");
         }
     } else {
 
         //Lagrer inputene inni server
-        $.post("/lagre", enBillett, function () {
-            hentAlle();
+        $.post("/storage", oneTicket, function () {
+            insertAll();
         });
         //Tømmer inputene
         $("#movie").val("");
@@ -52,7 +52,7 @@ function regTicket () {
         $('#phonenumber').val("");
     }
 }
-function hentAlle() {
+function insertAll() {
     $.get("/hentAlle", function (tickets) {
         formaterData(tickets);
     });
@@ -72,13 +72,13 @@ function formaterData(tickets) {
             + "</td></tr>";
     }
     ut += "</table>";
-    $("#billettene").html(ut);
+    $("#tickets").html(ut);
 }
 
 //Funksjon som sletter alle billetter
 function deleteAll() {
     $.get("/deleteAll", function () {
-        hentAlle();
+        insertAll();
     });
 }
 
