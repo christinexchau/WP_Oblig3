@@ -21,9 +21,9 @@ public class TicketController {
     }
 
     //Henter billettene fra server
-    @GetMapping("/hentAlle")
-    public List<Ticket> henteAlle(){
-        return rep.hentAlleBilletter();
+    @GetMapping("/insertAll")
+    public List<Ticket> insertAll(){
+        return rep.insertAllTickets();
     }
 
     //Sletter billettene fra server

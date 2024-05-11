@@ -25,7 +25,7 @@ public class TicketRepository {
     }
 
     // Legger til en SQL-kommando der brukeren henter alle billetter
-    public List<Ticket> hentAlleBilletter() {
+    public List<Ticket> insertAllTickets() {
         String sql = "SELECT * FROM Ticket";
         List<Ticket> allTickets = db.query(sql, new BeanPropertyRowMapper(Ticket.class));
         return allTickets;
