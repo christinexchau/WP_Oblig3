@@ -15,9 +15,9 @@ public class TicketRepository {
 
     // Lagrer inputverdinene inni tabellen
     public void saveTicket (Ticket ticket) {
-        String sql = "INSERT INTO Ticket (movie, number, firstname, lastname, email, phonenumber) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO Ticket (movie, quantity, firstname, lastname, email, phonenumber) VALUES (?,?,?,?,?,?)";
         db.update(sql, ticket.getMovie(),
-                ticket.getNumber(),
+                ticket.getQuantity(),
                 ticket.getFirstName(),
                 ticket.getLastName(),
                 ticket.getEmail(),

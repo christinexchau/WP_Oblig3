@@ -15,7 +15,7 @@ public class TicketController {
     private TicketRepository rep;
 
     //Lagrer inputene på server
-    @PostMapping("/save")
+    @PostMapping("/storage")
     public void saveTicket(Ticket ticket) {
         rep.saveTicket(ticket);
     }

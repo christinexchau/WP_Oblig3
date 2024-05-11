@@ -2,15 +2,15 @@ package oslometwebpro.wp_oblig3;
 
 public class Ticket {
     private String movie;
-    private int number;
+    private int quantity;
     private String firstName;
     private String lastName;
     private String email;
     private int phonenumber;
 
-    public Ticket(String movie, int number, String firstName, String lastName, String email, int phonenumber) {
+    public Ticket(String movie, int quantity, String firstName, String lastName, String email, int phonenumber) {
         this.movie = movie;
-        this.number = number;
+        this.quantity = quantity;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -28,12 +28,12 @@ public class Ticket {
         this.movie = movie;
     }
 
-    public int getNumber() {
-        return number;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getFirstName() {

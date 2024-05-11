@@ -15,7 +15,7 @@
             <form class="form">
                 <div class="form-group">
                     <label for="movie">Choose a movie:</label>
-                    <span id="filmFeil" style="color:darkred" class="errormessage"></span>
+                    <span id="movieError" style="color:darkred" class="errormessage"></span>
                     <select id="movie">
                         <option value="The Boy and the Heron">The Boy and the Heron</option>
                         <option value="Prinsesse Mononoke">Prinsesse Mononoke</option>
@@ -29,32 +29,32 @@
                     <input type="number" class="form-control" min="1" id="quantity"/>
                 </div>
                 <div class="form-group">
-                    <label for="firstName">Fornavn</label>
-                    <span id="fornavnFeil" style="color:darkred" class="errormessage"></span>
+                    <label for="firstName">First name</label>
+                    <span id="firstNameError" style="color:darkred" class="errormessage"></span>
                     <input type="text" class="form-control" id="firstName" placeholder="First name"/>
                 </div>
                 <div class="form-group">
-                    <label for="lastName">Etternavn</label>
-                    <span id="etternavnFeil" style="color:darkred" class="errormessage"></span>
+                    <label for="lastName">Last name</label>
+                    <span id="lastNameError" style="color:darkred" class="errormessage"></span>
                     <input type="text" class="form-control" id="lastName" placeholder="Last name"/>
                 </div>
                 <div class="form-group">
-                    <label for="epost">Epost</label>
-                    <span id="epostFeil" style="color:darkred" class="errormessage"></span>
-                    <input type="text" class="form-control" id="epost" placeholder="Email"/>
+                    <label for="email">Email</label>
+                    <span id="emailError" style="color:darkred" class="errormessage"></span>
+                    <input type="text" class="form-control" id="email" placeholder="Email"/>
                 </div>
                 <div class="form-group">
-                    <label for="telefonnr">Telefonnummer</label>
-                    <span id="telefonnrFeil" style="color:darkred" class="errormessage"></span>
-                    <input type="text" class="form-control" id="telefonnr" placeholder="Phonenumber"/>
+                    <label for="phonenumber">Phonenumber</label>
+                    <span id="phonenumberError" style="color:darkred" class="errormessage"></span>
+                    <input type="text" class="form-control" id="phonenumber" placeholder="Phonenumber"/>
                 </div>
             </form>
-            <button class="btn btn-primary" onclick="regBillett()">Kjøp billetter</button><br/>
+            <button class="btn btn-primary" onclick="regTicket()">Buy tickets</button><br/>
         </div>
         <div class="col-md-8">
-            <h3>Alle billettene:</h3>
-            <div id="billettene" class="table-responsive"></div>
-            <button class="btn btn-danger" onclick="slettAlle()">Slett alle billetter</button>
+            <h3>All tickets:</h3>
+            <div id="tickets" class="table-responsive"></div>
+            <button class="btn btn-danger" onclick="deleteAll()">Delete all tickets</button>
         </div>
     </div>
 </div>

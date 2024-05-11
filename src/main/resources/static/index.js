@@ -1,38 +1,38 @@
 
 //Funksjon som registrerer billetten
-function regBillett () {
+function regTicket () {
     const oneTicket = {
         movie: $('#movie').val(),
         quantity: $('#quantity').val(),
-        fornavn: $('#fornavn').val(),
-        etternavn: $('#etternavn').val(),
-        epost: $('#epost').val(),
-        telefonnr: $('#telefonnr').val()
+        firstName: $('#firstName').val(),
+        lastName: $('#lastName').val(),
+        email: $('#email').val(),
+        phonenumber: $('#phonenumber').val()
     };
 
     //Legger til valideringsinputer
     if(Object.values(oneTicket).includes("") || oneTicket.movie === "Velg film her") {
         if (oneTicket.quantity === "") {
-            $("#antallFeil").html("Du mangler å skrive inn antall");
+            $("#quantityError").html("Du mangler å skrive inn antall");
         } else {
-            $("#antallFeil").html("");
+            $("#quantityError").html("");
         }
-        if (oneTicket.fornavn === "") {
-            $("#fornavnFeil").html("Du mangler fornavn")
+        if (oneTicket.firstName === "") {
+            $("#firstNameError").html("Du mangler fornavn")
         } else {
-            $("#fornavnFeil").html("");
+            $("#firstNameError").html("");
         }
         if (oneTicket.etternavn === "") {
             $("#etternavnFeil").html("Du mangler etternavn")
         } else {
             $("#etternavnFeil").html("");
         }
-        if (oneTicket.epost === "" || !gyldigEpost(oneTicket.epost)) {
+        if (oneTicket.email === "" || !validEmail(oneTicket.email)) {
             $("#epostFeil").html("Du må skrive inn en gyldig epost")
         } else {
             $("#epostFeil").html("");
         }
-        if (oneTicket.telefonnr === "" || oneTicket.telefonnr.length !== 8) {
+        if (oneTicket.phonenumber === "" || oneTicket.phonenumber.length !== 8) {
             $("#telefonnrFeil").html("Du må skrive inn et gyldig telefonnummer")
         } else {
             $("#telefonnrFeil").html("");
@@ -53,22 +53,22 @@ function regBillett () {
     }
 }
 function hentAlle() {
-    $.get("/hentAlle", function (billetter) {
-        formaterData(billetter);
+    $.get("/hentAlle", function (tickets) {
+        formaterData(tickets);
     });
 }
 
 //Viser fram inputene i en tabell
 function formaterData(tickets) {
-    let ut = "<table class='table table-striped'><tr><th>Film</th><th>Antall</th><th>Fornavn</th>" +
-        "<th>Etternavn</th><th>Epost</th><th>Telefonnummer</th></tr>";
+    let ut = "<table class='table table-striped'><tr><th>Movie</th><th>Quantity</th><th>FirstName</th>" +
+        "<th>LastName</th><th>Email</th><th>Phonenumber</th></tr>";
     for (const ticket of tickets) {
         ut += "<tr><td>" + ticket.movie
-            + "</td><td>" + ticket.
+            + "</td><td>" + ticket.quantity
             + "</td><td>" + ticket.firstName
-            + "</td><td>" + ticket.etternavn
-            + "</td><td>" + ticket.epost
-            + "</td><td>" + ticket.telefonnr
+            + "</td><td>" + ticket.lastName
+            + "</td><td>" + ticket.email
+            + "</td><td>" + ticket.phonenumber
             + "</td></tr>";
     }
     ut += "</table>";
@@ -76,16 +76,16 @@ function formaterData(tickets) {
 }
 
 //Funksjon som sletter alle billetter
-function slettAlle() {
-    $.get("/slettAlle", function () {
+function deleteAll() {
+    $.get("/deleteAll", function () {
         hentAlle();
     });
 }
 
 //Validering for gyldig epost
-function gyldigEpost(epost) {
-    const epostRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
-    return epostRegex.test(epost);
+function validEmail(email) {
+    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
+    return emailRegex.test(email);
 }
 
 /*

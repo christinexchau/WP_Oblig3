@@ -1,0 +1,10 @@
+CREATE TABLE Ticket (
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    movie VARCHAR(255) NOT NULL,
+    quantity INTEGER NOT NULL,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phonenumber VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
